@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'Musfick'
+            keyPassword 'musfick.jamil.1'
+            storeFile file('G:/key_path/student_portal')
+            storePassword 'musfick.jamil.1'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.smartattendance.creativeteam"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    // third party dependencies -------------------------------------------------------------------
+    implementation 'com.balysv:material-ripple:1.0.2'
+    // ripple effect
+    implementation 'com.mikhaellopez:circularimageview:3.0.2'
+    // circle image view
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    // image load
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.github.GrenderG:Toasty:1.4.0'
+    implementation 'me.dm7.barcodescanner:zxing:1.9'
+    implementation 'com.google.zxing:core:3.2.1'
+    implementation 'com.journeyapps:zxing-android-embedded:3.2.0@aar'
+    implementation 'com.airbnb.android:lottie:2.0.0'
+    implementation 'pub.devrel:easypermissions:2.0.1'
+    implementation 'com.facebook.shimmer:shimmer:0.4.0'
+    implementation 'com.github.f0ris.sweetalert:library:1.5.6'
+    // firebase dependencies -------------------------------------------------------------------
+    implementation 'com.google.firebase:firebase-database:15.0.0'
+    implementation 'com.google.firebase:firebase-core:15.0.0'
+    implementation 'com.google.firebase:firebase-auth:15.0.0'
+    implementation 'com.firebaseui:firebase-ui-database:3.3.1'
+    implementation 'com.google.android.gms:play-services-auth:15.0.0'
+    implementation 'com.google.android.gms:play-services-location:15.0.0'
+}
